@@ -105,7 +105,7 @@ export default function Home({
     </Box>
   );
 }
-export const getServerSideProps = wrapper.getServerSideProps(
+export const getStaticProps = wrapper.getStaticProps(
   (store) =>
     async ({ locale }) => {
       try {
@@ -131,6 +131,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
             initialMostRecentPosts: mostRecentPosts,
             ...(await serverSideTranslations(locale, ["home", "navbar"])),
           },
+          revalidate: 2,
         };
       } catch (err) {
         return {
