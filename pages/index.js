@@ -138,7 +138,7 @@ export const getStaticProps = wrapper.getStaticProps(
             initialMostRecentPosts: mostRecentPosts,
             ...(await serverSideTranslations(locale, ["home", "navbar"])),
           },
-          revalidate: 10,
+          revalidate: 2,
         };
       } catch (err) {
         return {
